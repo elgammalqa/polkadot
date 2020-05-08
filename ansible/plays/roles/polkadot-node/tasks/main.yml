@@ -1,0 +1,9 @@
+---
+# tasks file for polkadot-node
+    - name: Copying compose file
+      copy:
+        src: "{{ role_path }}/files/docker-compose.yml"
+        dest: "/tmp/docker-compose.yml"
+
+    - name: Deploying polka node
+      shell: "docker-compose up"

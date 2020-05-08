@@ -1,0 +1,24 @@
+---
+# tasks file for polkadot-node
+    - name: Copying compose file
+      copy:
+        src: "{{ role_path }}/files/docker-compose.yml"
+        dest: "/tmp/monitoring/docker-compose.yml"
+
+    - name: Copying compose file
+      copy:
+        src: "{{ role_path }}/files/prometheus.yml"
+        dest: "/tmp/monitoring"
+
+    - name: Copying compose file
+      copy:
+        src: "{{ role_path }}/files/config.monitoring"
+        dest: "/tmp/monitoring"
+
+    - name: Copying compose file
+      copy:
+        src: "{{ role_path }}/files/provisioning"
+        dest: "/tmp/monitoring"
+
+    - name: Creating monitoring stack
+      shell: "docker-compose -f /tmp/monitoring/docker-compose.yml up -d"

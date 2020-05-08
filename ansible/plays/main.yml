@@ -1,0 +1,9 @@
+---
+  - name: Deploy polkadot nodes
+    hosts: localhost
+
+    roles:
+     - 'docker'
+     - 'polkadot-node'
+     - 'monitoring'
+
